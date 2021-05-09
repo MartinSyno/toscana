@@ -6,13 +6,12 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>Всі категорії</span>
+                            <span>Категорії</span>
                         </div>
                         <ul>
-                            <li><a href="#">Категорія 1</a></li>
-                            <li><a href="#">Категорія 2</a></li>
-                            <li><a href="#">Категорія 3</a></li>
-                            <li><a href="#">Категорія 4</a></li>
+                            {% for category in categories %}
+                            <li><a href="#">{{ category.name }}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -28,8 +27,8 @@
                             <div class="hero__search__phone__icon">
                                 <i class="fa fa-phone"></i>
                             </div>
-                            <div class="hero__search__phone__text">
-                                <h5><a href="#">050 581 6328</a></h5>
+                            <div class="hero__search__phone__text phone-copy">
+                                <h5 id="sample"><a href="#" onclick="CopyToClipboard('sample');return false;">{{ phone }}</a></h5>
                                 <span>Viber <i class="fa fa-phone-square"></i>, Telegram <i class="fa fa-telegram"></i></span>
                             </div>
                         </div>

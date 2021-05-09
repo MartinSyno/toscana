@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="zxx">
 {% load static %}
+{#<style>#}
+{#    .toscana_background {#}
+{#	    background: url({% static "img/toscana_background.jpg" %});#}
+{#    }#}
+{#</style>#}
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Toscana">
@@ -23,7 +29,7 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css">
 </head>
 
-<body>
+<body class="toscana_background">
     <!-- Гифка загрузки -->
     <div id="preloder">
         <div class="loader"></div>
@@ -40,7 +46,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> toscana@gmail.com</li>
+                                <li><i class="fa fa-envelope"></i>{{ email }}</li>
                                 <li>Безкоштовна доставка від $999</li>
                             </ul>
                         </div>
@@ -48,8 +54,8 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#">Facebook <i class="fa fa-facebook-square"></i></a>
-                                <a href="#">Instagram <i class="fa fa-instagram"></i></a>
+                                <a href="{{ facebook_link }}" target="_blank">Facebook <i class="fa fa-facebook-square"></i></a>
+                                <a href="{{ instagram_link }}" target="_blank">Instagram <i class="fa fa-instagram"></i></a>
                             </div>
                             <div class="header__top__right__language">
                                 <img src="{% static "img/language.png" %}" alt="">
@@ -82,7 +88,7 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart-o"></i> <span>9</span></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>9</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart"></i> <span>9</span></a></li>
                         </ul>
                         <div class="header__cart__price">Сума корзини: <span>150.00 грн.</span></div>
@@ -109,10 +115,10 @@
                             <a href="/"><img src="{% static "img/logo.png" %}" alt=""></a>
                         </div>
                         <ul>
-                            <li>Адреса: 60-49 Road 11378 New York</li>
-                            <li>Тел.: +38 050 581 6328</li>
+                            <li>Адреса: {{ address }}</li>
+                            <li>Тел.: {{ phone }}</li>
                             <li>Viber <i class="fa fa-phone-square"></i>, Telegram <i class="fa fa-telegram"></i></li>
-                            <li>Email: toscana@gmail.com</li>
+                            <li>Email: {{ email }}</li>
                         </ul>
                     </div>
                 </div>
@@ -146,8 +152,8 @@
 {#                            <button type="submit" class="site-btn">Subscribe</button>#}
 {#                        </form>#}
                         <div class="footer__widget__social">
-                            Facebook <a href="#"><i class="fa fa-facebook-square"></i></a>
-                            Instagram <a href="#"><i class="fa fa-instagram"></i></a>
+                            Facebook <a href="{{ facebook_link }}" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                            Instagram <a href="{{ instagram_link }}" target="_blank"><i class="fa fa-instagram"></i></a>
                         </div>
                         <div class="footer__widget__social">
                             Telegram <a href="#"><i class="fa fa-telegram"></i></a>

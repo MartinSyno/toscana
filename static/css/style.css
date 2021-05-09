@@ -74,6 +74,13 @@ h6 {
 	font-size: 16px;
 }
 
+.phone-copy a {
+	font-size: 18px;
+	display: inline-block;
+	color: #252525;
+	margin-right: 20px;
+}
+
 p {
 	font-size: 16px;
 	font-family: "Cairo", sans-serif;
@@ -98,7 +105,8 @@ a:hover,
 a:focus {
 	text-decoration: none;
 	outline: none;
-	color: #ffffff;
+	/*text-decoration: underline;*/
+	color: #7fad39;
 }
 
 ul,
@@ -739,6 +747,10 @@ ol {
 	font-weight: 700;
 	letter-spacing: 4px;
 	color: #7fad39;
+}
+
+.hero__text a:hover {
+	color: #ffffff;
 }
 
 .hero__text h2 {
@@ -3381,7 +3393,7 @@ ol {
 		color: #7fad39;
 	}
 	.humberger__menu__wrapper .slicknav_nav .slicknav_row,
-	.humberger__menu__wrapper .slicknav_nav a {
+	.humberger__menu__wrapper .slicknav_navd{
 		padding: 8px 0;
 	}
 	.humberger__menu__overlay {
