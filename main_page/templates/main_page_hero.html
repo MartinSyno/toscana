@@ -1,4 +1,22 @@
 {% load static %}
+<script>
+function CopyToClipboard(id)
+{
+var r = document.createRange();
+r.selectNode(document.getElementById(id));
+window.getSelection().removeAllRanges();
+window.getSelection().addRange(r);
+document.execCommand('copy');
+window.getSelection().removeAllRanges();
+}
+</script>
+<script>
+// When the user clicks on <div>, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>
 <section class="hero">
         <div class="container">
             <div class="row">
@@ -27,9 +45,10 @@
                             <div class="hero__search__phone__icon">
                                 <i class="fa fa-phone"></i>
                             </div>
-                            <div class="hero__search__phone__text phone-copy">
-                                <h5 id="sample"><a href="#" onclick="CopyToClipboard('sample');return false;">{{ phone }}</a></h5>
-                                <span>Viber <i class="fa fa-phone-square"></i>, Telegram <i class="fa fa-telegram"></i></span>
+                            <div class="popup hero__search__phone__text phone-copy">
+                                <h5 id="sample" onclick="myFunction()"><a href="#" onclick="CopyToClipboard('sample');return false;">{{ phone }}</a></h5>
+                                <span class="popuptext" id="myPopup">Скопійовано</span>
+                                <span>&nbsp;Viber <i class="fa fa-phone-square"></i>, Telegram <i class="fa fa-telegram"></i></span>
                             </div>
                         </div>
                     </div>
