@@ -63,28 +63,37 @@
 {#{% endblock humberger %}#}
 
 {% block header_menu %}
-    <div class="col-lg-6">
-        <nav class="header__menu">
-            <ul>
-                <li class="active"><a href="/">Головна</a></li>
-                <li><a href="shop-grid.html">Товари</a></li>
-                <li><a href="#">Сторінки</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="shop-details.html">Сторінка продукта</a></li>
-                        <li><a href="shoping-cart.html">Корзина</a></li>
-                        <li><a href="checkout.html">Оформлення замовлення</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Контакти</a></li>
+    <ul>
+        <li class="active"><a href="/">Головна</a>
+            <ul class="header__menu__dropdown">
+                <li><a href="/#discount">Знижки</a></li>
+                <li><a href="/#featured">Найпопулярніше</a></li>
+                <li><a href="/#latest_product">Нові товари</a></li>
+                <li><a href="/#latest_product">Рейтинг товарів</a></li>
             </ul>
-        </nav>
-    </div>
+        </li>
+        <li><a href="#">Товари</a>
+            <ul class="header__menu__dropdown">
+                {% for category in categories %}
+                    <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><a href="#">Сторінки</a>
+            <ul class="header__menu__dropdown">
+                <li><a href="shop-details.html">Сторінка продукта</a></li>
+                <li><a href="shoping-cart.html">Корзина</a></li>
+                <li><a href="checkout.html">Оформлення замовлення</a></li>
+            </ul>
+        </li>
+        <li><a href="contact.html">Контакти</a></li>
+    </ul>
 {% endblock header_menu %}
 
 {% block content %}
 
     {% include "main_page_hero.html" %}
-    {% include "main_page_categories.html" %}
+    {% include "main_page_discount.html" %}
     {% include "main_page_featured.html" %}
     {% include "main_page_banner.html" %}
     {% include "main_page_latest_product.html" %}

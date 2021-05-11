@@ -1,5 +1,5 @@
 {% load static %}
-<section class="latest-product spad">
+<section id="latest_product" class="latest-product spad">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 offset-1">
@@ -9,13 +9,13 @@
                         {% for group in latest_furnitures %}
                             <div class="latest-prdouct__slider__item">
                                 {% for furniture in group %}
-                                    <a href="#" class="latest-product__item">
+                                    <a href={{ furniture.get_absolute_url }} class="latest-product__item">
                                         <div class="set-bg latest-product__item__pic" data-setbg="{{ furniture.photo.url }}">
                                             <img src="{% static "img/transparent.png" %}" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>{{ furniture.name }}</h6>
-                                            <span>{{ furniture.price }} грн.</span>
+                                            <h3>{{ furniture.name }}</h3>
+                                            <h5>{{ furniture.price }} грн.</h5>
                                         </div>
                                     </a>
                                 {% endfor %}
@@ -31,13 +31,13 @@
                         {% for group in toprated_furnitures %}
                             <div class="latest-product__slider__item">
                                 {% for furniture in group %}
-                                    <a href="#" class="latest-product__item">
+                                    <a href={{ furniture.get_absolute_url }} class="latest-product__item">
                                         <div class="set-bg latest-product__item__pic" data-setbg="{{ furniture.photo.url }}">
                                             <img src="{% static "img/transparent.png" %}" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>{{ furniture.name }}</h6>
-                                            <span>{{ furniture.price }} грн.</span>
+                                            <h3>{{ furniture.name }}</h3>
+                                            <h5>{{ furniture.price }} грн.</h5>
                                         </div>
                                     </a>
                                 {% endfor %}

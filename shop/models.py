@@ -17,8 +17,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_absolute_url(self):
-    #     return reverse("main_page:category_page_view", args=[self.id, self.slug])
+    def get_absolute_url(self):
+        return reverse("main_page:category_info_page", args=[self.id, self.slug])
 
 class Furniture(models.Model):
 
@@ -43,7 +43,7 @@ class Furniture(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("main_page:furniture_page_view", args=[self.id, self.slug])
+        return reverse("main_page:furniture_info_page", args=[self.id, self.slug])
 
 # class FurnitureColors(models.Model):
 #     furniture_group_of_colors = models.CharField(max_length=30, unique=True)
