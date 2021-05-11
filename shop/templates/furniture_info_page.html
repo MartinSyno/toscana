@@ -37,8 +37,9 @@
                     <div class="breadcrumb__text">
                         <h2>{{ furniture.name }}</h2>
                         <div class="breadcrumb__option">
-                            <span>Товари <i class="fa fa-long-arrow-right"></i></span>
-                            <a href={{ furniture.category.get_absolute_url }}>{{ furniture.category.name }} <i class="fa fa-long-arrow-right"></i></a>
+                            <a href="/"><i class="fa icon_house"></i></a>&ensp;<span><i class="fa fa-long-arrow-right"></i></span>
+                            <a href={{ furniture.category.get_absolute_url }}>Товари</a>&ensp;<span><i class="fa fa-long-arrow-right"></i></span>
+                            <a href={{ furniture.category.get_absolute_url }}>{{ furniture.category.name }}</a>&ensp;<span><i class="fa fa-long-arrow-right"></i></span>
                             <span>{{ furniture.name }}</span>
                         </div>
                     </div>

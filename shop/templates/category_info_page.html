@@ -36,6 +36,11 @@
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>{{ category.name }}</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/"><i class="fa icon_house"></i></a>&ensp;<span><i class="fa fa-long-arrow-right"></i></span>
+                            <a href={{ category.get_absolute_url }}>Товари</a>&ensp;<span><i class="fa fa-long-arrow-right"></i></span>
+                            <a href={{ category.get_absolute_url }}>{{ category.name }}</a>
+                        </div>
                     </div>
                 </div>
             </div>

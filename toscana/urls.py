@@ -21,6 +21,7 @@ from toscana import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("main_page.urls")),
+    path("shop/", include("shop.urls")),
 ]
 
 if settings.DEBUG:
