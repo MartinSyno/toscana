@@ -1,22 +1,4 @@
 {% load static %}
-<script>
-function CopyToClipboard(id)
-{
-var r = document.createRange();
-r.selectNode(document.getElementById(id));
-window.getSelection().removeAllRanges();
-window.getSelection().addRange(r);
-document.execCommand('copy');
-window.getSelection().removeAllRanges();
-}
-</script>
-<script>
-// When the user clicks on <div>, open the popup
-function myFunction() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-}
-</script>
 <section class="hero">
         <div class="container">
             <div class="row">
@@ -28,30 +10,13 @@ function myFunction() {
                         </div>
                         <ul>
                             {% for category in categories %}
-                            <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
+                                <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="Що шукаєте?">
-                                <button type="submit" class="site-btn">ПОШУК</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="popup hero__search__phone__text phone-copy">
-                                <h5 id="sample" onclick="myFunction()"><a href="#" onclick="CopyToClipboard('sample');return false;">{{ phone }}</a></h5>
-                                <span class="popuptext" id="myPopup">Скопійовано</span>
-                                <span>&nbsp;Viber <i class="fa fa-phone-square"></i>, Telegram <i class="fa fa-telegram"></i></span>
-                            </div>
-                        </div>
-                    </div>
+                    {% include "hero_search_block.html" %}
                     <div class="hero__item set-bg" data-setbg="{% static "img/hero/banner.jpg" %}">
                         <div class="hero__text">
                             <span>Меблі</span>

@@ -11,7 +11,7 @@ class Category(models.Model):
     is_visible = models.BooleanField(default=True)
 
     class Meta:
-        ordering = ("name",)
+        ordering = ("category_ordered",)
         index_together = (("id", "slug"),)
 
     def __str__(self):
@@ -36,7 +36,7 @@ class Furniture(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ("name",)
+        ordering = ("furniture_ordered",)
         index_together = (("id", "slug"),)
 
     def __str__(self):

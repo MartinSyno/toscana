@@ -4,10 +4,9 @@ import random
 
 
 def category_info_page(request, id, slug):
-    categories = Category.objects.filter(is_visible=True).order_by("category_ordered")
+    categories = Category.objects.filter(is_visible=True)
     category = get_object_or_404(Category, id=id, slug=slug, is_visible=True)
-    furnitures_of_category = Furniture.objects.filter(category=category.pk).filter(is_visible=True).order_by(
-        "furniture_ordered")
+    furnitures_of_category = Furniture.objects.filter(category=category.pk).filter(is_visible=True)
 
     return render(request, "category_info_page.html", context={
         "categories": categories,
@@ -17,7 +16,7 @@ def category_info_page(request, id, slug):
 
 
 def furniture_info_page(request, id, slug):
-    categories = Category.objects.filter(is_visible=True).order_by("category_ordered")
+    categories = Category.objects.filter(is_visible=True)
 
     furniture = get_object_or_404(Furniture, id=id, slug=slug, is_visible=True)  # , available=True)
 

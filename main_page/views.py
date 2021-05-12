@@ -3,14 +3,14 @@ from shop.models import *
 from .models import *
 
 
-def main_page_view(request):
-    categories = Category.objects.filter(is_visible=True).order_by("category_ordered")
+def main_page(request):
+    categories = Category.objects.filter(is_visible=True)
 
     for category in categories:
-        furnitures_of_category = Furniture.objects.filter(category=category.pk).filter(is_visible=True).order_by("furniture_ordered")
+        furnitures_of_category = Furniture.objects.filter(category=category.pk).filter(is_visible=True)
         category.furnitures_of_category = furnitures_of_category
 
-    furnitures = Furniture.objects.filter(is_visible=True).order_by("furniture_ordered")
+    furnitures = Furniture.objects.filter(is_visible=True)
 
     # Раздел Последние товары (amount_in_column - сколько отображать в столбце)
     amount_in_column = SiteSettings.objects.first().latest_product_amount_in_column
