@@ -43,7 +43,7 @@ class Furniture(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("shop:furniture_info_page", args=[self.id, self.slug])
+        return reverse("shop:furniture_info_page", args=[self.category.id, self.category.slug, self.id, self.slug])
 
 # class FurnitureColors(models.Model):
 #     furniture_group_of_colors = models.CharField(max_length=30, unique=True)

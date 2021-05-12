@@ -15,7 +15,7 @@ def category_info_page(request, id, slug):
     })
 
 
-def furniture_info_page(request, id, slug):
+def furniture_info_page(request, id, slug, *args, **kwargs):
     categories = Category.objects.filter(is_visible=True)
 
     furniture = get_object_or_404(Furniture, id=id, slug=slug, is_visible=True)  # , available=True)
