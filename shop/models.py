@@ -31,7 +31,7 @@ class Furniture(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     desc = models.TextField(max_length=500)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)#related_name='furnitures_of_category')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -47,3 +47,7 @@ class Furniture(models.Model):
 
 # class FurnitureColors(models.Model):
 #     furniture_group_of_colors = models.CharField(max_length=30, unique=True)
+
+class Photos(models.Model):
+    furniture = models.ForeignKey(Furniture, default=None, related_name='photos', on_delete=models.DO_NOTHING)
+    photo = models.ImageField(upload_to='img/furniture/%Y/%m/%d', blank=True)

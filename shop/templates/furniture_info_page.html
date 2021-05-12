@@ -61,7 +61,11 @@
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl={{ furniture.photo.url }}
-                                src={{ furniture.photo.url }} alt="">
+                                    src={{ furniture.photo.url }} alt="">
+                            {% for furniture_photo in furniture.photos.all %}
+                                <img data-imgbigurl={{ furniture_photo.photo.url }}
+                                    src={{ furniture_photo.photo.url }} alt="">
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
