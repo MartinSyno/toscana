@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from main_page.models import SiteSettings
+from cart.cart import Cart
 from django.core.paginator import Paginator
 import random
 
@@ -19,6 +20,8 @@ def category_info_page(request, id, slug):
     page = request.GET.get("page")
     furnitures_of_category = paginator.get_page(page)
 
+    cart = Cart(request)
+
     return render(request, "category_info_page.html", context={
         "categories": categories,
         "category": category,
@@ -28,6 +31,7 @@ def category_info_page(request, id, slug):
         "email": email,
         "facebook_link": facebook_link,
         "instagram_link": instagram_link,
+        "cart": cart,
     })
 
 def furniture_info_page(request, id, slug, *args, **kwargs):
@@ -36,7 +40,9 @@ def furniture_info_page(request, id, slug, *args, **kwargs):
     related_furnitures = [furniture_object for furniture_object in
                           Furniture.objects.filter(category__name=furniture.category.name)]
     random.shuffle(related_furnitures)
-    # cart = Cart(request)
+
+    cart = Cart(request)
+
     return render(request, "furniture_info_page.html", context={
         "categories": categories,
         "furniture": furniture,
@@ -46,4 +52,5 @@ def furniture_info_page(request, id, slug, *args, **kwargs):
         "email": email,
         "facebook_link": facebook_link,
         "instagram_link": instagram_link,
-    })  # "cart": cart})
+        "cart": cart,
+    })

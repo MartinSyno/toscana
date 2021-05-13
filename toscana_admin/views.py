@@ -5,6 +5,7 @@ from shop.models import Category
 
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.paginator import Paginator
+from cart.cart import Cart
 
 # Create your views here.
 categories = Category.objects.filter(is_visible=True)
@@ -27,6 +28,8 @@ def messages_list(request):
     page = request.GET.get("page")
     messages = paginator.get_page(page)
 
+    cart = Cart(request)
+
     return render(request, "messages_list.html", context={
         "messages": messages,
         "categories": categories,
@@ -35,6 +38,7 @@ def messages_list(request):
         "email": email,
         "facebook_link": facebook_link,
         "instagram_link": instagram_link,
+        "cart": cart,
     })
 
 @login_required(login_url="/admin/login/")

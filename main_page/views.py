@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from shop.models import *
 from .models import *
+from cart.cart import Cart
 
 categories = Category.objects.filter(is_visible=True)
 phone = SiteSettings.objects.first().phone
@@ -29,6 +30,8 @@ def main_page(request):
 
     banners = Banner.objects.filter(is_visible=True)
 
+    cart = Cart(request)
+
     return render(request, "main_page_index.html", context={
         "categories": categories,
         "furnitures": furnitures,
@@ -40,4 +43,5 @@ def main_page(request):
         "email": email,
         "facebook_link": facebook_link,
         "instagram_link": instagram_link,
+        "cart": cart,
     })

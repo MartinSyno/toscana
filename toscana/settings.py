@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "shop",
     "contact_page",
     "toscana_admin",
+    "cart",
+    "orders",
 ]
 
 MIDDLEWARE = [
@@ -136,3 +138,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CART_SESSION_ID = "cart"

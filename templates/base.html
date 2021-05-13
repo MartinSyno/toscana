@@ -94,7 +94,14 @@
                             <li><a href="#"><i class="fa fa-heart"></i> <span>9</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart"></i> <span>9</span></a></li>
                         </ul>
-                        <div class="header__cart__price">Сума корзини: <span>150.00 грн.</span></div>
+                        {% with total_items = cart|length %}
+                            {% if cart|length > 0 %}
+                                <a href={% url "cart:cart_detail" %}><div class="header__cart__price">Предметів в кошику: <span>{{ total_items }}</span></div></a>
+                                <a href={% url "cart:cart_detail" %}><div class="header__cart__price">Сума в кошику: <span>{{ cart.get_total_price }} грн.</span></div></a>
+                            {% else %}
+                                Кошик пустий.
+                            {% endif %}
+                        {% endwith %}
                     </div>
                 </div>
             </div>

@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header_menu %}
+    <ul>
+        <li><a href="/">Головна</a>
+            <ul class="header__menu__dropdown">
+                <li><a href="/#discount">Знижки</a></li>
+                <li><a href="/#featured">Найпопулярніше</a></li>
+                <li><a href="/#latest_product">Нові товари</a></li>
+                <li><a href="/#latest_product">Рейтинг товарів</a></li>
+            </ul>
+        </li>
+        <li><a href="#" class="active">Товари</a>
+            <ul class="header__menu__dropdown">
+                {% for category in categories %}
+                    <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><a href="#">Сторінки</a>
+            <ul class="header__menu__dropdown">
+                <li><a href="shop-details.html">Сторінка продукта</a></li>
+                <li><a href="shoping-cart.html">Корзина</a></li>
+                <li><a href="checkout.html">Оформлення замовлення</a></li>
+            </ul>
+        </li>
+        <li><a href={% url "main_page:contact_page" %}>Контакти</a></li>
+        {% if user.is_staff %}
+            <li><a href={% url "toscana_admin:messages_list" %}>Повідомлення</a></li>
+        {% endif %}
+    </ul>
+{% endblock header_menu %}
+
+{% block content %}
+    <!-- Hero Section Begin -->
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>Категорії</span>
+                        </div>
+                        <ul>
+                            {% for category in categories %}
+                                <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    {% include "hero_search_block.html" %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="{% static "img/breadcrumb.jpg" %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Кошик</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/"><i class="fa icon_house"></i></a>&ensp;<span><i class="fa fa-long-arrow-right"></i></span>
+                            <a href={% url "cart:cart_detail" %}>Кошик</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Shoping Cart Section Begin -->
+    <section class="shoping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="shoping__product">Товари</th>
+                                    <th>Ціна</th>
+                                    <th>Кількість</th>
+                                    <th>Всього</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart %}
+                                    {% with furniture = item.furniture %}
+                                        <tr>
+                                            <td class="shoping__cart__item">
+                                                <img src={{ furniture.photo.url }} alt="">
+                                                <h5>{{ furniture.name }}</h5>
+                                            </td>
+                                            <td class="shoping__cart__price">{{ item.price }} грн.</td>
+                                            <td class="shoping__cart__quantity">
+                                                <div class="quantity">
+                                                    <div class="pro-qty">
+                                                        {{ item.quantity }}
+        {#                                                <input type="text" value="1">#}
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="shoping__cart__total">{{ item.total_price }} грн.</td>
+                                            <td class="shoping__cart__item__close">
+                                                <a href={% url "cart:cart_remove" furniture.id %}><span class="icon_close"></span></a>
+                                            </td>
+                                        </tr>
+                                    {% endwith %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a href="/" class="primary-btn cart-btn">ПРОДОВЖИТИ ПОКУПКИ</a>
+{#                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>#}
+{#                            Upadate Cart</a>#}
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__continue">
+                        <div class="shoping__discount">
+                            <h5>Ккпони</h5>
+                            <form action="#">
+                                <input type="text" placeholder="Введіть ваш купон">
+                                <button type="submit" class="site-btn">ВИКОРИСТАТИ КУПОН</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__checkout">
+                        <h5>До оплати</h5>
+                        <ul>
+{#                            <li>Subtotal <span>$454.98</span></li>#}
+                            <li>Всього <span>{{ cart.get_total_price }} грн.</span></li>
+                        </ul>
+                        <a href={% url "orders:order_create" %} class="primary-btn">ОФОРМИТИ ЗАМОВЛЕННЯ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shoping Cart Section End -->
+{% endblock content %}

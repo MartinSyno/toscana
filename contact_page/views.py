@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from shop.models import Category
 from main_page.models import SiteSettings
 from .forms import FormMessage
+from cart.cart import Cart
 
 # Create your views here.
 
@@ -25,6 +26,8 @@ def contact_page(request):
 
     form = FormMessage()
 
+    cart = Cart(request)
+
     return render(request, "contact_page.html", context={
         "categories":categories,
         "phone": phone,
@@ -34,4 +37,5 @@ def contact_page(request):
         "instagram_link": instagram_link,
         "working_hours": working_hours,
         "form": form,
+        "cart": cart,
     })

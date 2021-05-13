@@ -23,6 +23,8 @@ urlpatterns = [
     path("", include("main_page.urls")),
     path("shop/", include("shop.urls")),
     path("admin-panel/", include("toscana_admin.urls")),
+    path("cart/", include("cart.urls")),
+    path("orders/", include("orders.urls")),
 ]
 
 if settings.DEBUG:
