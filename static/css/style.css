@@ -1706,22 +1706,28 @@ ol {
 	display: inline-block;
 	width: 30px;
 	height: 30px;
-	border: 1px solid #b2b2b2;
-	font-size: 14px;
-	color: #b2b2b2;
+	border: 1px solid #868686;
+	font-size: 18px;
+	color: #868686;
 	font-weight: 700;
 	line-height: 28px;
 	text-align: center;
 	margin-right: 16px;
-	-webkit-transition: all, 0.3s;
-	-moz-transition: all, 0.3s;
-	-ms-transition: all, 0.3s;
-	-o-transition: all, 0.3s;
-	transition: all, 0.3s;
+	-webkit-transition: all, 0.1s;
+	-moz-transition: all, 0.1s;
+	-ms-transition: all, 0.1s;
+	-o-transition: all, 0.1s;
+	transition: all, 0.1s;
 }
 
 .product__pagination a:hover,
 .blog__pagination a:hover {
+	background: #7fad39;
+	border-color: #7fad39;
+	color: #ffffff;
+}
+
+a.active-page {
 	background: #7fad39;
 	border-color: #7fad39;
 	color: #ffffff;

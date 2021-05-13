@@ -4,8 +4,16 @@ from main_page.models import SiteSettings
 from shop.models import Category
 
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.core.paginator import Paginator
 
 # Create your views here.
+categories = Category.objects.filter(is_visible=True)
+phone = SiteSettings.objects.first().phone
+address = SiteSettings.objects.first().address
+email = SiteSettings.objects.first().email
+facebook_link = SiteSettings.objects.first().facebook_link
+instagram_link = SiteSettings.objects.first().instagram_link
+
 
 def is_admin(user):
     return user.is_staff
@@ -15,12 +23,10 @@ def is_admin(user):
 def messages_list(request):
     messages = Message.objects.filter(is_processed=False)
 
-    categories = Category.objects.filter(is_visible=True)
-    phone = SiteSettings.objects.first().phone
-    address = SiteSettings.objects.first().address
-    email = SiteSettings.objects.first().email
-    facebook_link = SiteSettings.objects.first().facebook_link
-    instagram_link = SiteSettings.objects.first().instagram_link
+    paginator = Paginator(messages, 5)
+    page = request.GET.get("page")
+    messages = paginator.get_page(page)
+
     return render(request, "messages_list.html", context={
         "messages": messages,
         "categories": categories,

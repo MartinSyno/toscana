@@ -2,10 +2,15 @@ from django.shortcuts import render
 from shop.models import *
 from .models import *
 
+categories = Category.objects.filter(is_visible=True)
+phone = SiteSettings.objects.first().phone
+address = SiteSettings.objects.first().address
+email = SiteSettings.objects.first().email
+facebook_link = SiteSettings.objects.first().facebook_link
+instagram_link = SiteSettings.objects.first().instagram_link
+
 
 def main_page(request):
-    categories = Category.objects.filter(is_visible=True)
-
     for category in categories:
         furnitures_of_category = Furniture.objects.filter(category=category.pk).filter(is_visible=True)
         category.furnitures_of_category = furnitures_of_category
@@ -21,12 +26,6 @@ def main_page(request):
     toprated_furnitures = []
     for i in range(0, len(Furniture.objects.filter(is_visible=True)), amount_in_column):
         toprated_furnitures.append(Furniture.objects.filter(is_visible=True).order_by("-created")[i:i + amount_in_column])
-
-    phone = SiteSettings.objects.first().phone
-    address = SiteSettings.objects.first().address
-    email = SiteSettings.objects.first().email
-    facebook_link = SiteSettings.objects.first().facebook_link
-    instagram_link = SiteSettings.objects.first().instagram_link
 
     banners = Banner.objects.filter(is_visible=True)
 

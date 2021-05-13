@@ -4,6 +4,15 @@ from main_page.models import SiteSettings
 from .forms import FormMessage
 
 # Create your views here.
+
+categories = Category.objects.filter(is_visible=True)
+phone = SiteSettings.objects.first().phone
+address = SiteSettings.objects.first().address
+email = SiteSettings.objects.first().email
+facebook_link = SiteSettings.objects.first().facebook_link
+instagram_link = SiteSettings.objects.first().instagram_link
+
+
 def contact_page(request):
 
     if request.method == "POST":
@@ -12,13 +21,6 @@ def contact_page(request):
             form.save()
             return redirect("main_page:contact_page")
 
-
-    categories = Category.objects.filter(is_visible=True)
-    phone = SiteSettings.objects.first().phone
-    address = SiteSettings.objects.first().address
-    email = SiteSettings.objects.first().email
-    facebook_link = SiteSettings.objects.first().facebook_link
-    instagram_link = SiteSettings.objects.first().instagram_link
     working_hours = SiteSettings.objects.first().working_hours
 
     form = FormMessage()

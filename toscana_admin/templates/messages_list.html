@@ -75,6 +75,24 @@
                     </div>
                     <hr/>
                 {% endfor %}
+                <div class="product__pagination text-center">
+                    {% if messages.has_previous %}
+                        <a href="?page=1">&#10094;&#10094;</a>
+                        <a href="?page={{ messages.previous_page_number }}">&#10094;</a>
+                    {% endif %}
+                    {% for page in messages.paginator.page_range %}
+                        {% if page == messages.number %}
+                            <a href="?page={{ page }}" class="active-page">{{ page }}</a>
+                        {% else %}
+                            <a href="?page={{ page }}">{{ page }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    {% if messages.has_next %}
+                        <a href="?page={{ messages.next_page_number }}">&#10095;</a>
+                        <a href="?page={{ messages.paginator.num_pages }}">&#10095;&#10095;</a>
+                    {% endif %}
+                </div>
+            <br/>
             </div>
         </div>
     </div>
