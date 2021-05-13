@@ -248,6 +248,11 @@ ol {
 	letter-spacing: 2px;
 }
 
+.primary-btn:hover {
+	color: #ffffff;
+	background: #93b165;
+}
+
 .site-btn {
 	font-size: 14px;
 	color: #ffffff;

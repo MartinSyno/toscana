@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header_menu %}
+    <ul>
+        <li><a href="/">Головна</a>
+            <ul class="header__menu__dropdown">
+                <li><a href="/#discount">Знижки</a></li>
+                <li><a href="/#featured">Найпопулярніше</a></li>
+                <li><a href="/#latest_product">Нові товари</a></li>
+                <li><a href="/#latest_product">Рейтинг товарів</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Товари</a>
+            <ul class="header__menu__dropdown">
+                {% for category in categories %}
+                    <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><a href="#">Сторінки</a>
+            <ul class="header__menu__dropdown">
+                <li><a href="shop-details.html">Сторінка продукта</a></li>
+                <li><a href="shoping-cart.html">Корзина</a></li>
+                <li><a href="checkout.html">Оформлення замовлення</a></li>
+            </ul>
+        </li>
+        <li><a href={% url "main_page:contact_page" %}>Контакти</a></li>
+        {% if user.is_staff %}
+            <li class="active"><a href={% url "toscana_admin:messages_list" %}>Повідомлення</a></li>
+        {% endif %}
+    </ul>
+{% endblock header_menu %}
+
+{% block content %}
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="{% static "img/breadcrumb.jpg" %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Повідомлення</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/"><i class="fa icon_house"></i></a>&ensp;<span><i class="fa fa-long-arrow-right"></i></span>
+                            <a href={% url "toscana_admin:messages_list" %}>Повідомлення</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2"></div>
+                    <div class="col-lg-3 col-md-3"><h4>Ім'я</h4></div>
+                    <div class="col-lg-4 col-md-4"><h4>Електронна пошта</h4></div>
+                    <div class="col-lg-3 col-md-3"><h4>Дата</h4></div>
+                </div>
+                <hr/>
+                {% for message in messages %}
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2">
+                            <a href={% url "toscana_admin:message_update" pk=message.pk %} class="primary-btn">Прочитано</a>
+                        </div>
+                        <div class="col-lg-3 col-md-3">{{ message.user_name }}</div>
+                        <div class="col-lg-4 col-md-4">{{ message.user_email }}</div>
+                        <div class="col-lg-3 col-md-3">{{ message.pub_date|time }} {{ message.pub_date|date:"d.m.Y" }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2"></div>
+                        <div class="col-lg-10 col-md-10"><p>{{ message.user_message }}</p></div>
+                    </div>
+                    <hr/>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

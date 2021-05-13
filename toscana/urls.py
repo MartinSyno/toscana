@@ -22,6 +22,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("main_page.urls")),
     path("shop/", include("shop.urls")),
+    path("admin-panel/", include("toscana_admin.urls")),
 ]
 
 if settings.DEBUG:

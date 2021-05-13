@@ -26,6 +26,9 @@
             </ul>
         </li>
         <li class="active"><a href={% url "main_page:contact_page" %}>Контакти</a></li>
+        {% if user.is_staff %}
+            <li><a href={% url "toscana_admin:messages_list" %}>Повідомлення</a></li>
+        {% endif %}
     </ul>
 {% endblock header_menu %}
 

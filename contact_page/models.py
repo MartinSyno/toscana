@@ -6,7 +6,7 @@ class Message(models.Model):
     user_email = models.EmailField()
     user_message = models.TextField(max_length=500)
 
-    pub_date = models.DateField(auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
     is_processed = models.BooleanField(default=False)
 
     class Meta:
