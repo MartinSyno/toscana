@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "main_page",
     "shop",
     "contact_page",
+    "toscana_admin",
 ]
 
 MIDDLEWARE = [
