@@ -15,8 +15,8 @@ class FurniturePhotosInline(admin.StackedInline):
 
 @admin.register(Furniture)
 class FurnitureAdmin(admin.ModelAdmin):
-    list_display = ["name", "slug", "price", "available", "furniture_ordered", "category", "updated"]#["title", "slug", "photo", "dish_order", "is_visible", "price", "available", "desc", "category", "created", "updated"]
-    list_filter = ["available", "created", "updated", "category"]
-    list_editable = ["price", "available", "furniture_ordered", "category"]
+    list_display = ["name", "slug", "is_visible", "price", "available", "furniture_ordered", "category", "updated"]#["title", "slug", "photo", "dish_order", "is_visible", "price", "available", "desc", "category", "created", "updated"]
+    list_filter = ["is_visible", "available", "created", "updated", "category"]
+    list_editable = ["is_visible", "price", "available", "furniture_ordered", "category"]
     prepopulated_fields = {"slug": ("name",)}
     inlines = [FurniturePhotosInline]

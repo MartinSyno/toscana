@@ -19,6 +19,7 @@ def contact_page(request):
     email = SiteSettings.objects.first().email
     facebook_link = SiteSettings.objects.first().facebook_link
     instagram_link = SiteSettings.objects.first().instagram_link
+    working_hours = SiteSettings.objects.first().working_hours
 
     form = FormMessage()
 
@@ -29,5 +30,6 @@ def contact_page(request):
         "email": email,
         "facebook_link": facebook_link,
         "instagram_link": instagram_link,
+        "working_hours": working_hours,
         "form": form,
     })

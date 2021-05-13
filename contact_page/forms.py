@@ -8,7 +8,7 @@ class FormMessage(forms.ModelForm):
         widget=forms.EmailInput(attrs={"type": "email", "placeholder": "Електронна пошта"}))#, "required": "required"}))
     user_message = forms.CharField(max_length=500,
                                    widget=forms.Textarea(
-                                       attrs={"placeholder": "Сообщение"}))#, "required": "required"}))
+                                       attrs={"placeholder": "Повідомлення"}))#, "required": "required"}))
 
     class Meta():
         model = Message

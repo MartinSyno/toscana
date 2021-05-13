@@ -31,6 +31,7 @@ class Furniture(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     desc = models.TextField(max_length=500)
+    size = models.CharField(max_length=30)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)#related_name='furnitures_of_category')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

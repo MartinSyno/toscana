@@ -12,9 +12,10 @@ class SiteSettings(models.Model):
     phone = models.CharField(max_length=20)
     address = models.CharField(max_length=30)
     email = models.EmailField()
-    latest_product_amount_in_column = models.IntegerField()
     facebook_link = models.CharField(max_length=100)
     instagram_link = models.CharField(max_length=100)
+    working_hours = models.CharField(max_length=30)
+    latest_product_amount_in_column = models.IntegerField()
 
 
 class Banner(models.Model):

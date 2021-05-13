@@ -85,6 +85,16 @@ h6 {
 	color: #252525;
 }
 
+.product__details__text ul li span.product-available {
+	color: #ffffff;
+	background: #7fad39;
+}
+
+.product__details__text ul li span.product-no-available {
+	color: #ffffff;
+	background: #dd2222;
+}
+
 .popup {
     position: relative;
     display: inline-block;
@@ -203,7 +213,8 @@ ol {
 .set-bg {
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: top center;
+	background-position: 50% center;
+	background: 50%/contain no-repeat;
 }
 
 .spad {
@@ -1600,6 +1611,7 @@ ol {
 	overflow: hidden;
 }
 
+
 .product__item__pic__hover {
 	position: absolute;
 	left: 0;
@@ -1729,7 +1741,10 @@ ol {
 
 .product__details__pic__item img {
 	height: 450px;
-	max-height: 100%;
+	object-fit: contain;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .product__details__pic__slider img {
@@ -1806,7 +1821,7 @@ ol {
 }
 
 .product__details__text ul li span samp {
-	color: #dd2222;
+	color: #7fad39;
 }
 
 .product__details__text ul li .share {
