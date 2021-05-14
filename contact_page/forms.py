@@ -10,6 +10,6 @@ class FormMessage(forms.ModelForm):
                                    widget=forms.Textarea(
                                        attrs={"placeholder": "Повідомлення"}))#, "required": "required"}))
 
-    class Meta():
+    class Meta:
         model = Message
         fields = ("user_name", "user_email", "user_message")

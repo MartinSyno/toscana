@@ -10,7 +10,6 @@ from main_page.models import SiteSettings
 def order_create(request):
     cart = Cart(request)
     if request.method == "POST":
-        # raise ValueError("Fufffff")
         form = OrderCreateForm(request.POST)
         if form.is_valid():
             order = form.save()
@@ -23,7 +22,6 @@ def order_create(request):
             return render(request, "checkout_created.html", {"order": order})
     else:
         form = OrderCreateForm()
-    # raise ValueError("Огооооо")
     categories = Category.objects.filter(is_visible=True)
     phone = SiteSettings.objects.first().phone
     address = SiteSettings.objects.first().address

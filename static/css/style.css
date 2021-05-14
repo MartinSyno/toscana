@@ -2232,8 +2232,9 @@ a.active-page {
 	border: 1px solid #ebebeb;
 	padding-left: 20px;
 	font-size: 16px;
-	color: #b2b2b2;
+	color: #6f6f6f;
 	border-radius: 4px;
+	background-color: #e5e4e4;
 }
 
 .checkout__input input.checkout__input__add {
@@ -2321,12 +2322,16 @@ a.active-page {
 	float: right;
 }
 
+.checkout__order .checkout__order__products comment.checkout-order-quantity {
+	text-align: center;
+}
+
 .checkout__order ul {
 	margin-bottom: 12px;
 }
 
 .checkout__order ul li {
-	font-size: 16px;
+	font-size: 20px;
 	color: #6f6f6f;
 	line-height: 40px;
 	list-style: none;
@@ -2367,6 +2372,7 @@ a.active-page {
 
 .checkout__order .checkout__order__total span {
 	float: right;
+	font-size: 22px;
 	color: #dd2222;
 }
 
@@ -2375,6 +2381,10 @@ a.active-page {
 	letter-spacing: 2px;
 	width: 100%;
 	margin-top: 10px;
+}
+
+.checkout__order ul li strong {
+	color: #7fad39;
 }
 
 /*---------------------

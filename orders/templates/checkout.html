@@ -86,55 +86,51 @@
 {#            </div>#}
             <div class="checkout__form">
                 <h4>Деталі оплати</h4>
-                <form action="#">
+                <form method="post">
+                {% csrf_token %}
                     <div class="row">
-                        <div class="col-lg-8 col-md-6">
-{#                            <div class="row">#}
-{#                                <div class="col-lg-6">#}
-{#                                    <div class="checkout__input">#}
-{#                                        <p>Ім'я<span>*</span></p>#}
-{#                                        <input type="text">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="col-lg-6">#}
-{#                                    <div class="checkout__input">#}
-{#                                        <p>Прізвище<span>*</span></p>#}
-{#                                        <input type="text">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                            <div class="checkout__input">#}
-{#                                <p>Країна<span>*</span></p>#}
-{#                                <input type="text">#}
-{#                            </div>#}
-{#                            <div class="checkout__input">#}
-{#                                <p>Адреса<span>*</span></p>#}
-{#                                <input type="text" placeholder="Вулиця, будинок" class="checkout__input__add">#}
-{#                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">#}
-{#                            </div>#}
-{#                            <div class="checkout__input">#}
-{#                                <p>Місто<span>*</span></p>#}
-{#                                <input type="text">#}
-{#                            </div>#}
-{#                            <div class="row">#}
-{#                                <div class="col-lg-6">#}
-{#                                    <div class="checkout__input">#}
-{#                                        <p>Телефон<span>*</span></p>#}
-{#                                        <input type="text">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="col-lg-6">#}
-{#                                    <div class="checkout__input">#}
-{#                                        <p>Електронна пошта<span>*</span></p>#}
-{#                                        <input type="text">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-                            <form method="post">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button type="submit" class="site-btn">Відправити</button>
-                            </form>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Ім'я<span>*</span></p>
+                                        {% csrf_token %}
+                                        {{ form.first_name }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Прізвище<span>*</span></p>
+                                        {% csrf_token %}
+                                        {{ form.last_name }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Електронна пошта<span>*</span></p>
+                                        {% csrf_token %}
+                                        {{ form.email }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Місто<span>*</span></p>
+                                        {% csrf_token %}
+                                        {{ form.city }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="checkout__input">
+                                        <p>Адреса<span>*</span></p>
+                                        {% csrf_token %}
+                                        {{ form.address }}
+                                    </div>
+                                </div>
+                            </div>
 {#                            <div class="checkout__input__checkbox">#}
 {#                                <label for="acc">#}
 {#                                    Create an account?#}
@@ -161,17 +157,18 @@
 {#                                    placeholder="Notes about your order, e.g. special notes for delivery.">#}
 {#                            </div>#}
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="checkout__order">
                                 <h4>Ваше замовлення</h4>
                                 <div class="checkout__order__products">Товари <span>Всього</span></div>
                                 <ul>
                                     {% for item in cart %}
-                                        <li><strong>{{ item.furniture.name }}</strong>&ensp;&ensp;x{{ item.quantity }} <span>{{ item.total_price }} грн.</span></li>
+                                        <li><a href={{ item.furniture.get_absolute_url }}><strong>{{ item.furniture.name }}</strong></a>&ensp;&ensp;x{{ item.quantity }} <span>{{ item.total_price }} грн.</span></li>
                                     {% endfor %}
                                 </ul>
 {#                                <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>#}
                                 <div class="checkout__order__total">Всього <span>{{ cart.get_total_price }} грн.</span></div>
+                                <button type="submit" class="site-btn">Залишити замовлення</button>
 {#                                <div class="checkout__input__checkbox">#}
 {#                                    <label for="acc-or">#}
 {#                                        Create an account?#}
