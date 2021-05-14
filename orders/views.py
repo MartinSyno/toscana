@@ -5,6 +5,7 @@ from .models import OrderItem
 from shop.models import Category
 from main_page.models import SiteSettings
 
+
 # Create your views here.
 def order_create(request):
     cart = Cart(request)

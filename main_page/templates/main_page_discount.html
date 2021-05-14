@@ -24,14 +24,14 @@
                 <div class="product__discount__slider owl-carousel">
                     {% for furniture in furnitures %}
                         <div class="col-lg-4">
-                            <div class="product__discount__item">
-                                <div class="product__discount__item__pic set-bg"
+                            <div class="product__discount__item featured__item">
+                                <div class="product__discount__item__pic featured__item__pic set-bg"
                                      data-setbg="{{ furniture.photo.url }}">
                                     <div class="product__discount__percent">-20%</div>
                                     <a href={{ furniture.get_absolute_url }}><div class="product__discount__item__pic"></div></a>
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <ul class="featured__item__pic__hover">
+{#                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>#}
+                                        <li><a href={% url "cart:cart_add" furniture.id %}><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__discount__item__text">

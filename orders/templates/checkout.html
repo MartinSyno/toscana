@@ -167,7 +167,7 @@
                                 <div class="checkout__order__products">Товари <span>Всього</span></div>
                                 <ul>
                                     {% for item in cart %}
-                                        <li>{{ item.furniture.name }} x{{ item.quantity }} <span>{{ item.total_price }} грн.</span></li>
+                                        <li><strong>{{ item.furniture.name }}</strong>&ensp;&ensp;x{{ item.quantity }} <span>{{ item.total_price }} грн.</span></li>
                                     {% endfor %}
                                 </ul>
 {#                                <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>#}
