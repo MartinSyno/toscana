@@ -93,7 +93,7 @@
                             </thead>
                             <tbody>
                                 {% for item in cart %}
-                                    {% with furniture = item.furniture %}
+                                    {% with furniture=item.furniture %}
                                         <tr>
                                             <td class="shoping__cart__item">
                                                 <img src={{ furniture.photo.url }} alt="">
@@ -131,7 +131,7 @@
                 <div class="col-lg-6">
                     <div class="shoping__continue">
                         <div class="shoping__discount">
-                            <h5>Ккпони</h5>
+                            <h5>Купони</h5>
                             <form action="#">
                                 <input type="text" placeholder="Введіть ваш купон">
                                 <button type="submit" class="site-btn">ВИКОРИСТАТИ КУПОН</button>

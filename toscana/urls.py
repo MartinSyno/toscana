@@ -20,11 +20,11 @@ from toscana import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("main_page.urls")),
     path("shop/", include("shop.urls")),
     path("admin-panel/", include("toscana_admin.urls")),
     path("cart/", include("cart.urls")),
     path("orders/", include("orders.urls")),
+    path("", include("main_page.urls")),
 ]
 
 if settings.DEBUG:
