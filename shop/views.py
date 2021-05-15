@@ -46,7 +46,7 @@ def furniture_info_page(request, id, slug, *args, **kwargs):
     return render(request, "furniture_info_page.html", context={
         "categories": categories,
         "furniture": furniture,
-        "related_furnitures": related_furnitures,
+        "related_furnitures": related_furnitures[:4],
         "phone": phone,
         "address": address,
         "email": email,

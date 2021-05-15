@@ -1,4 +1,70 @@
 {% extends "base.html" %}
+{% load static %}
+{% block header_menu %}
+    <div class="col-lg-3 col-md-3 hero hero-normal">
+        {% include "hero_categories_block.html" %}
+    </div>
+
+    <div class="col-lg-9 col-md-9">
+        <div class="row">
+            <div class="col-lg-8">
+                <ul>
+                    <li><a href="/">Головна</a>
+                        <ul class="header__menu__dropdown">
+                            <li><a href="/#featured">Найпопулярніше</a></li>
+                            <li><a href="/#latest_product">Нові товари</a></li>
+                            <li><a href="/#latest_product">Рейтинг товарів</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="#">Товари</a>
+                        <ul class="header__menu__dropdown">
+                            {% for category in categories %}
+                                <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="/#discount">Знижки</a></li>
+                    <li><a href={% url "main_page:contact_page" %}>Контакти</a></li>
+                </ul>
+                {% if user.is_staff %}
+                    <ul>
+                        <li><a href={% url "toscana_admin:messages_list" %}>Повідомлення</a></li>
+                        <li><a href="/admin">Admin</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                {% include "main_page_hero.html" %}
+            </div>
+        </div>
+    </div>
+{% endblock header_menu %}
+
 {% block content %}
-    <h1>Дякуємо!</h1><p>Номер замовлення: <h3>{{ order.id }}</h3></p>
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="{% static "img/breadcrumb.jpg" %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Замовлення відправлено!</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/"><i class="fa icon_house"></i></a>&ensp;<span><i class="fa fa-long-arrow-right"></i></span>
+                            <a href={% url "cart:cart_detail" %}>Кошик</a>&ensp;<span><i class="fa fa-long-arrow-right"></i></span>
+                            <a href={% url "orders:order_create" %}>Оформити замовлення</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+    <div class="section-title">
+        <h2>Дякуємо!</h2>
+    </div>
+    <div class="col-lg-8 offset-2">
+        <h3>Номер замовлення: </h3>
+        <h2 class="centered">0455723901863810{{ order.id }}</h2>
+        <h4>Наш менеджер невдовзі зателефонує вам.</h4>
+    </div>
 {% endblock content %}

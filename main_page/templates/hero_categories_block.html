@@ -1,0 +1,11 @@
+<div class="hero__categories">
+    <div class="hero__categories__all">
+        <i class="fa fa-bars"></i>
+        <span>Категорії</span>
+    </div>
+    <ul>
+        {% for category in categories %}
+            <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

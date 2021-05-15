@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css">
 </head>
 
-<body class="toscana_background">
+<body>
     <!-- Гифка загрузки -->
     <div id="preloder">
         <div class="loader"></div>
@@ -74,41 +74,17 @@
             </div>
         </div>
         <div class="container">
+            <div class="col-lg-4 centered">
+                <a href="/"><img src="{% static "img/logo.png" %}" alt=""></a>
+            </div>
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="/"><img src="{% static "img/logo.png" %}" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <nav class="header__menu">
-
-                        {% block header_menu %}
-                        {% endblock header_menu %}
-
+                        <div class="row">
+                            {% block header_menu %}
+                            {% endblock header_menu %}
+                        </div>
                     </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        {% with total_items=cart|length %}
-                            {% if cart|length > 0 %}
-                                <ul>
-{#                                    <li><a href="#"><i class="fa fa-heart"></i> <span>9</span></a></li>#}
-                                    <li><a href={% url "cart:cart_detail" %}><i class="fa fa-shopping-cart"></i>
-                                        <span>
-{#                                            {% if cart|length <= 9 %}{{ total_items }}#}
-{#                                            {% else %}9+#}
-{#                                            {% endif %}#}
-                                            {{ total_items }}
-                                        </span>
-                                    </a></li>
-                                </ul>
-                                <a href={% url "cart:cart_detail" %}><div class="header__cart__price">Сума кошика: <span>{{ cart.get_total_price }} грн.</span></div></a>
-                            {% else %}
-                                Кошик пустий.
-                            {% endif %}
-                        {% endwith %}
-                    </div>
                 </div>
             </div>
 {#            <div class="humberger__open">#}

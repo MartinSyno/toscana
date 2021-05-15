@@ -1,31 +1,72 @@
 {% load static %}
-<section class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>Категорії</span>
-                        </div>
-                        <ul>
-                            {% for category in categories %}
-                                <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+<script>
+    function CopyToClipboard(id) {
+        var r = document.createRange();
+        r.selectNode(document.getElementById(id));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(r);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+    }
+</script>
+<script>
+    function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+</script>
+<div class="hero__search">
+    <div class="hero__search__phone">
+        <div class="hero__search__phone__icon">
+            <i class="fa fa-phone"></i>
+        </div>
+        <div class="popup hero__search__phone__text phone-copy">
+            <h5 id="sample" onclick="myFunction()"><a href="#" onclick="CopyToClipboard('sample');return false;">{{ phone }}</a></h5>
+            <span class="popuptext" id="myPopup">Скопійовано</span>
+            <span>&nbsp;Viber <i class="fa fa-phone-square"></i>, Telegram <i class="fa fa-telegram"></i></span>
+        </div>
+    </div>
+    {% with total_items=cart|length %}
+        {% if cart|length > 0 %}
+            <div class="hero__search__phone">
+                <div class="hero__search__phone__icon hero-cart-icon">
+                    <a href={% url "cart:cart_detail" %}><i class="fa fa-shopping-cart"></i></a>
                 </div>
-                <div class="col-lg-9">
-                    {% include "hero_search_block.html" %}
-                    <div class="hero__item set-bg" data-setbg="{% static "img/hero/banner.jpg" %}">
-                        <div class="hero__text">
-                            <span>Меблі</span>
-                            <h2>Меблі <br />100% з дерева</h2>
-                            <p>Бескоштовна доставка і зборка в наявності</p>
-                            <a href="#" class="primary-btn">КУПУЙ ЗАРАЗ</a>
-                        </div>
-                    </div>
+                <div class="hero__search__phone__text hero-cart">
+                    <h5><a href={% url "cart:cart_detail" %}>Сума кошика</a></h5>
+                    <h5>&nbsp;{{ cart.get_total_price }} грн.</h5>
                 </div>
             </div>
-        </div>
-</section>
+        {% else %}
+            <div class="hero__search__phone">
+                <div class="hero__search__phone__icon hero-cart-icon">
+                    <a href={% url "cart:cart_detail" %}><i class="fa fa-shopping-cart"></i></a>
+                </div>
+                <div class="hero__search__phone__text hero-cart">
+                    <h5><a href={% url "cart:cart_detail" %}>Кошик</a></h5>
+                    <h5><a href={% url "cart:cart_detail" %}>пустий</a></h5>
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+{#    <div class="header__cart">#}
+{#        {% with total_items=cart|length %}#}
+{#            {% if cart|length > 0 %}#}
+{#                <ul>#}
+{#                    <li><a href={% url "cart:cart_detail" %}><i class="fa fa-shopping-cart"></i>#}
+{#                        <span>{{ total_items }}</span>#}
+{#                            {% if cart|length <= 9 %}{{ total_items }}#}
+{#                            {% else %}9+#}
+{#                            {% endif %}#}
+{#                    </a></li>#}
+{#                </ul>#}
+{#                <a href={% url "cart:cart_detail" %}><div class="header__cart__price">Сума кошика: <span>{{ cart.get_total_price }} грн.</span></div></a>#}
+{#            {% else %}#}
+{#                <ul>#}
+{#                    <li><a href={% url "cart:cart_detail" %}><i class="fa fa-shopping-cart"></i><span>0</span></a></li>#}
+{#                </ul>#}
+{#                <a href={% url "cart:cart_detail" %}><div class="header__cart__price">Кошик пустий.</div></a>#}
+{#            {% endif %}#}
+{#        {% endwith %}#}
+{#    </div>#}

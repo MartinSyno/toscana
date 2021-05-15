@@ -1,39 +1,48 @@
 {% extends "base.html" %}
 {% load static %}
 {% block header_menu %}
-    <ul>
-        <li><a href="/">Головна</a>
-            <ul class="header__menu__dropdown">
-                <li><a href="/#discount">Знижки</a></li>
-                <li><a href="/#featured">Найпопулярніше</a></li>
-                <li><a href="/#latest_product">Нові товари</a></li>
-                <li><a href="/#latest_product">Рейтинг товарів</a></li>
-            </ul>
-        </li>
-        <li class="active"><a href="#">Товари</a>
-            <ul class="header__menu__dropdown">
-                {% for category in categories %}
-                    <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </li>
-        <li><a href="#">Сторінки</a>
-            <ul class="header__menu__dropdown">
-                <li><a href="shop-details.html">Сторінка продукта</a></li>
-                <li><a href="shoping-cart.html">Корзина</a></li>
-                <li><a href="checkout.html">Оформлення замовлення</a></li>
-            </ul>
-        </li>
-        <li><a href={% url "main_page:contact_page" %}>Контакти</a></li>
-        {% if user.is_staff %}
-            <li><a href={% url "toscana_admin:messages_list" %}>Повідомлення</a></li>
-        {% endif %}
-    </ul>
+    <div class="col-lg-3 col-md-3 hero hero-normal">
+        {% include "hero_categories_block.html" %}
+    </div>
+
+    <div class="col-lg-9 col-md-9">
+        <div class="row">
+            <div class="col-lg-8">
+                <ul>
+                    <li><a href="/">Головна</a>
+                        <ul class="header__menu__dropdown">
+                            <li><a href="/#featured">Найпопулярніше</a></li>
+                            <li><a href="/#latest_product">Нові товари</a></li>
+                            <li><a href="/#latest_product">Рейтинг товарів</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="#">Товари</a>
+                        <ul class="header__menu__dropdown">
+                            {% for category in categories %}
+                                <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="/#discount">Знижки</a></li>
+                    <li><a href={% url "main_page:contact_page" %}>Контакти</a></li>
+                </ul>
+                {% if user.is_staff %}
+                    <ul>
+                        <li><a href={% url "toscana_admin:messages_list" %}>Повідомлення</a></li>
+                        <li><a href="/admin">Admin</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                {% include "main_page_hero.html" %}
+            </div>
+        </div>
+    </div>
 {% endblock header_menu %}
 
 {% block content %}
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="{% static "img/breadcrumb.jpg" %}">
+    <section class="breadcrumb-section set-bg" data-setbg="{% static "img/breadcrumb.jpg" %}" id="category-info">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
