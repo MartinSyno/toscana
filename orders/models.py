@@ -1,15 +1,21 @@
 from django.db import models
 from shop.models import Furniture
+import random
 
 # Create your models here.
 
 
 class Order(models.Model):
+
+    def random_number(*args, **kwargs):
+        return random.randint(100_000_000, 999_999_999)
+
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
+    phone_number = models.CharField(max_length=13)
     address = models.CharField(max_length=250)
-    city = models.CharField(max_length=100)
+    code = models.CharField(max_length=20, default=random_number)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)

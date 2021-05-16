@@ -4,10 +4,13 @@ from .models import Order, OrderItem
 # Register your models here.
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
-    raw_id_fields = ['furniture']
+    raw_id_fields = ["furniture"]
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'first_name', 'last_name', 'email', 'address', 'city', 'paid', 'created', 'updated']
-    list_filter = ['paid', 'created', 'updated']
+    list_display = ["code", "first_name", "last_name", "phone_number", "email", "address", "paid", "created", "updated"]
+    list_filter = ["paid", "created", "updated"]
+    list_editable = ["paid"]
+    search_fields = ["code", "first_name", "last_name", "phone_number"]
+    save_on_top = True
     inlines = [OrderItemInline]

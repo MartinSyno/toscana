@@ -9,11 +9,7 @@ from cart.cart import Cart
 
 # Create your views here.
 categories = Category.objects.filter(is_visible=True)
-phone = SiteSettings.objects.first().phone
-address = SiteSettings.objects.first().address
-email = SiteSettings.objects.first().email
-facebook_link = SiteSettings.objects.first().facebook_link
-instagram_link = SiteSettings.objects.first().instagram_link
+site_settings = SiteSettings.objects.first()
 
 
 def is_admin(user):
@@ -33,11 +29,7 @@ def messages_list(request):
     return render(request, "messages_list.html", context={
         "messages": messages,
         "categories": categories,
-        "phone": phone,
-        "address": address,
-        "email": email,
-        "facebook_link": facebook_link,
-        "instagram_link": instagram_link,
+        "site_settings": site_settings,
         "cart": cart,
     })
 

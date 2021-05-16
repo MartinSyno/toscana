@@ -68,28 +68,28 @@
                     <div class="contact__widget">
                         <span class="fa fa-phone"></span>
                         <h4>Телефон</h4>
-                        <p>{{ phone }}</p>
+                        <p>{{ site_settings.phone }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_pin"></span>
                         <h4>Адреса</h4>
-                        <p>{{ address }}</p>
+                        <p>{{ site_settings.address }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_clock"></span>
                         <h4>Робочий час</h4>
-                        <p>{{ working_hours }}</p>
+                        <p>{{ site_settings.working_hours }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_mail"></span>
                         <h4>Електронна<br>пошта</h4>
-                        <p>{{ email }}</p>
+                        <p>{{ site_settings.email }}</p>
                     </div>
                 </div>
             </div>
@@ -107,8 +107,8 @@
             <div class="inside-widget">
                 <h4>Меблевий салон TOSCANA</h4>
                 <ul>
-                    <li>Телефон: {{ phone }}</li>
-                    <li>Адреса: {{ address }}</li>
+                    <li>Телефон: {{ site_settings.phone }}</li>
+                    <li>Адреса: {{ site_settings.address }}</li>
                 </ul>
             </div>
         </div>

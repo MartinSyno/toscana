@@ -29,6 +29,8 @@ class Furniture(models.Model):
     furniture_ordered = models.IntegerField()
     is_visible = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    old_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    discount = models.IntegerField(blank=True, null=True)
     available = models.BooleanField(default=True)
     desc = models.TextField(max_length=500)
     size = models.CharField(max_length=30)

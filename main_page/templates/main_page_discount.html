@@ -22,12 +22,12 @@
             </div>
             <div class="row">
                 <div class="product__discount__slider owl-carousel">
-                    {% for furniture in furnitures %}
+                    {% for furniture in discount_furnitures %}
                         <div class="col-lg-4">
                             <div class="product__discount__item featured__item">
                                 <div class="product__discount__item__pic featured__item__pic set-bg"
                                      data-setbg="{{ furniture.photo.url }}">
-                                    <div class="product__discount__percent">-20%</div>
+                                    <div class="product__discount__percent">-{{ furniture.discount }}%</div>
                                     <a href={{ furniture.get_absolute_url }}><div class="product__discount__item__pic"></div></a>
                                     <ul class="featured__item__pic__hover">
 {#                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>#}
@@ -37,7 +37,7 @@
                                 <div class="product__discount__item__text">
                                     <span>{{ furniture.category.name }}</span>
                                     <h4 class="category-info"><a href={{ furniture.get_absolute_url }}>{{ furniture.name }}</a></h4>
-                                    <div class="product__item__price">{{ furniture.price }} грн.<span>3000 грн.</span></div>
+                                    <div class="product__item__price">{{ furniture.price }} грн.{% if furniture.old_price %}<span>{{ furniture.old_price }} грн.</span>{% endif %}</div>
                                 </div>
                             </div>
                         </div>

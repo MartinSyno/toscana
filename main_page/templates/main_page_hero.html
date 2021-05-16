@@ -21,34 +21,27 @@
             <i class="fa fa-phone"></i>
         </div>
         <div class="popup hero__search__phone__text phone-copy">
-            <h5 id="sample" onclick="myFunction()"><a href="#" onclick="CopyToClipboard('sample');return false;">{{ phone }}</a></h5>
+            <h5 id="sample" onclick="myFunction()"><a href="#" onclick="CopyToClipboard('sample');return false;">{{ site_settings.phone }}</a></h5>
             <span class="popuptext" id="myPopup">Скопійовано</span>
             <span>&nbsp;Viber <i class="fa fa-phone-square"></i>, Telegram <i class="fa fa-telegram"></i></span>
         </div>
     </div>
-    {% with total_items=cart|length %}
-        {% if cart|length > 0 %}
-            <div class="hero__search__phone">
-                <div class="hero__search__phone__icon hero-cart-icon">
-                    <a href={% url "cart:cart_detail" %}><i class="fa fa-shopping-cart"></i></a>
-                </div>
-                <div class="hero__search__phone__text hero-cart">
+    <div class="hero__search__phone">
+        {% with total_items=cart|length %}
+            <div class="hero__search__phone__icon hero-cart-icon">
+                <a href={% url "cart:cart_detail" %}><i class="fa fa-shopping-cart"></i><span>{{ total_items }}</span></a>
+            </div>
+            <div class="hero__search__phone__text hero-cart">
+                {% if cart|length > 0 %}
                     <h5><a href={% url "cart:cart_detail" %}>Сума кошика</a></h5>
                     <h5>&nbsp;{{ cart.get_total_price }} грн.</h5>
-                </div>
-            </div>
-        {% else %}
-            <div class="hero__search__phone">
-                <div class="hero__search__phone__icon hero-cart-icon">
-                    <a href={% url "cart:cart_detail" %}><i class="fa fa-shopping-cart"></i></a>
-                </div>
-                <div class="hero__search__phone__text hero-cart">
+                {% else %}
                     <h5><a href={% url "cart:cart_detail" %}>Кошик</a></h5>
                     <h5><a href={% url "cart:cart_detail" %}>пустий</a></h5>
-                </div>
+                {% endif %}
             </div>
-        {% endif %}
-    {% endwith %}
+        {% endwith %}
+    </div>
 </div>
 {#    <div class="header__cart">#}
 {#        {% with total_items=cart|length %}#}

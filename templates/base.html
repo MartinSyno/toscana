@@ -45,7 +45,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i>{{ email }}</li>
+                                <li><i class="fa fa-envelope"></i>{{ site_settings.email }}</li>
                                 <li>Доставка по всій Ураїні!</li>
                             </ul>
                         </div>
@@ -53,8 +53,8 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="{{ facebook_link }}" target="_blank">Facebook <i class="fa fa-facebook-square"></i></a>
-                                <a href="{{ instagram_link }}" target="_blank">Instagram <i class="fa fa-instagram"></i></a>
+                                <a href="{{ site_settings.facebook_link }}" target="_blank">Facebook <i class="fa fa-facebook-square"></i></a>
+                                <a href="{{ site_settings.instagram_link }}" target="_blank">Instagram <i class="fa fa-instagram"></i></a>
                             </div>
 {#                            <div class="header__top__right__language">#}
 {#                                <img src="{% static "img/language.png" %}" alt="">#}
@@ -107,10 +107,10 @@
                             <a href="/"><img src="{% static "img/logo.png" %}" alt=""></a>
                         </div>
                         <ul>
-                            <li>Адреса: {{ address }}</li>
-                            <li>Тел.: {{ phone }}</li>
+                            <li>Адреса: {{ site_settings.address }}</li>
+                            <li>Тел.: {{ site_settings.phone }}</li>
                             <li>Viber <i class="fa fa-phone-square"></i>, Telegram <i class="fa fa-telegram"></i></li>
-                            <li>Email: {{ email }}</li>
+                            <li>Email: {{ site_settings.email }}</li>
                         </ul>
                     </div>
                 </div>
@@ -122,8 +122,8 @@
                             <li><a href={% url "main_page:contact_page" %} target="_blank">Розташування</a></li>
                             <li><a href={% url "main_page:contact_page" %} target="_blank">Залишити замовлення</a></li>
                             <li><a href="http://toscana.uz.ua/" target="_blank">Інший асортимент</a></li>
-                            <li><a href={{ facebook_link }} target="_blank">Facebook сторінка</a></li>
-                            <li><a href={{ instagram_link }} target="_blank">Instagram сторінка</a></li>
+                            <li><a href={{ site_settings.facebook_link }} target="_blank">Facebook сторінка</a></li>
+                            <li><a href={{ site_settings.instagram_link }} target="_blank">Instagram сторінка</a></li>
                         </ul>
                     </div>
                 </div>
@@ -136,8 +136,8 @@
 {#                            <button type="submit" class="site-btn">Subscribe</button>#}
 {#                        </form>#}
                         <div class="footer__widget__social">
-                            Facebook <a href="{{ facebook_link }}" target="_blank"><i class="fa fa-facebook-square"></i></a>
-                            Instagram <a href="{{ instagram_link }}" target="_blank"><i class="fa fa-instagram"></i></a>
+                            Facebook <a href="{{ site_settings.facebook_link }}" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                            Instagram <a href="{{ site_settings.instagram_link }}" target="_blank"><i class="fa fa-instagram"></i></a>
                         </div>
 {#                        <div class="footer__widget__social">#}
 {#                            Telegram <a href="#"><i class="fa fa-telegram"></i></a>#}

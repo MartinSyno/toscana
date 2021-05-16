@@ -84,7 +84,7 @@
                 <div class="col-lg-5 col-md-5">
                     <div class="product__details__text">
                         <h3>{{ furniture.name }}</h3>
-                        <div class="product__details__price">{{ furniture.price }} грн.</div>
+                        <div class="product__details__price">{{ furniture.price }} грн.{% if furniture.old_price %}<span>{{ furniture.old_price }} грн.</span>{% endif %}</div>
                         <p>{{ furniture.desc }}</p>
 {#                        <div class="product__details__quantity">#}
 {#                            <div class="quantity">#}
@@ -93,7 +93,7 @@
 {#                                </div>#}
 {#                            </div>#}
 {#                        </div>#}
-                        <a href={% url "cart:cart_add" furniture.id %} class="primary-btn">Добавити в кошик</a>
+                        <a href={% url "cart:cart_add" furniture.id %} class="primary-btn">Додати в кошик <i class="fa fa-shopping-cart"></i></a>
 {#                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span> 10000 вподобань</a>#}
                         <ul>
                             <li><b>Наявність</b>
