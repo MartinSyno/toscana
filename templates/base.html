@@ -56,18 +56,18 @@
                                 <a href="{{ facebook_link }}" target="_blank">Facebook <i class="fa fa-facebook-square"></i></a>
                                 <a href="{{ instagram_link }}" target="_blank">Instagram <i class="fa fa-instagram"></i></a>
                             </div>
-                            <div class="header__top__right__language">
-                                <img src="{% static "img/language.png" %}" alt="">
-                                <div>UA</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">UA</a></li>
-                                    <li><a href="#">RU</a></li>
-                                </ul>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                            </div>
+{#                            <div class="header__top__right__language">#}
+{#                                <img src="{% static "img/language.png" %}" alt="">#}
+{#                                <div>UA</div>#}
+{#                                <span class="arrow_carrot-down"></span>#}
+{#                                <ul>#}
+{#                                    <li><a href="#">UA</a></li>#}
+{#                                    <li><a href="#">RU</a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                            <div class="header__top__right__auth">#}
+{#                                <a href="#"><i class="fa fa-user"></i> Login</a>#}
+{#                            </div>#}
                         </div>
                     </div>
                 </div>
@@ -114,24 +114,16 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                <div class="col-lg-3 col-md-3 col-sm-3 offset-lg-1">
                     <div class="footer__widget">
                         <h6>Корисні Посилання</h6>
                         <ul>
-                            <li><a href="#">Про Нас</a></li>
-                            <li><a href="#">Про Меблевий салон</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href={% url "main_page:contact_page" %} target="_blank">Контакти</a></li>
+                            <li><a href={% url "main_page:contact_page" %} target="_blank">Розташування</a></li>
+                            <li><a href={% url "main_page:contact_page" %} target="_blank">Залишити замовлення</a></li>
+                            <li><a href="http://toscana.uz.ua/" target="_blank">Інший асортимент</a></li>
+                            <li><a href={{ facebook_link }} target="_blank">Facebook сторінка</a></li>
+                            <li><a href={{ instagram_link }} target="_blank">Instagram сторінка</a></li>
                         </ul>
                     </div>
                 </div>

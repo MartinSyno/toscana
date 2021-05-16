@@ -71,22 +71,22 @@
         <div class="row">
             <div class="col-lg-8">
                 <ul>
-                    <li class="active"><a href="/">Головна</a>
+                    <li class="active"><a href="/">Головна <h1><i class="icon_house"></i></h1></a>
                         <ul class="header__menu__dropdown">
                             <li><a href="/#featured">Найпопулярніше</a></li>
                             <li><a href="/#latest_product">Нові товари</a></li>
                             <li><a href="/#latest_product">Рейтинг товарів</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Товари</a>
+                    <li><a href="#">Товари <h1><i class="icon_gift"></i></h1></a>
                         <ul class="header__menu__dropdown">
                             {% for category in categories %}
                                 <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
-                    <li><a href="/#discount">Знижки</a></li>
-                    <li><a href={% url "main_page:contact_page" %}>Контакти</a></li>
+                    <li><a href="/#discount">Знижки <h1><i class="icon_percent_alt"></i></h1></a></li>
+                    <li><a href={% url "main_page:contact_page" %}>Контакти <h1><i class="fa fa-address-book"></i></h1></a></li>
                 </ul>
                 {% if user.is_staff %}
                     <ul>
@@ -104,9 +104,9 @@
                 <div class="hero__item set-bg" data-setbg="{% static "img/hero/banner.jpg" %}">
                     <div class="hero__text">
                         <span>Меблі</span>
-                        <h2>Меблі <br />100% з дерева</h2>
-                        <p>Бескоштовна доставка і зборка в наявності</p>
-                        <a href="#" class="primary-btn">КУПУЙ ЗАРАЗ</a>
+                        <h2>Меблі <br />100% якості</h2>
+                        <p>Швидка відправка замовлень!</p>
+                        <a href="/#featured" class="primary-btn">КУПУЙ ЗАРАЗ</a>
                     </div>
                 </div>
             </div>

@@ -528,13 +528,12 @@ ol {
 	display: inline-block;
 	margin-right: 50px;
 	position: relative;
-
 }
 
 .header__menu ul li .header__menu__dropdown {
 	position: absolute;
 	left: 0;
-	top: 50px;
+	top: 100%;
 	background: #222222;
 	width: 180px;
 	z-index: 9;
@@ -568,13 +567,23 @@ ol {
 	color: #7fad39;
 }
 
+.header__menu ul li.active a h1 i{
+	font-size: 80%;
+	text-align: center;
+	color: #7fad39;
+}
+
 .header__menu ul li:hover .header__menu__dropdown {
-	top: 30px;
+	top: 100%;
 	opacity: 1;
 	visibility: visible;
 }
 
 .header__menu ul li:hover>a {
+	color: #7fad39;
+}
+
+.header__menu ul li:hover>a h1 i {
 	color: #7fad39;
 }
 
@@ -584,7 +593,23 @@ ol {
 
 .header__menu ul li a {
 	font-size: 16px;
-	color: #252525;
+	color: #222222;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 2px;
+	-webkit-transition: all, 0.1s;
+	-moz-transition: all, 0.1s;
+	-ms-transition: all, 0.1s;
+	-o-transition: all, 0.1s;
+	transition: all, 0.1s;
+	padding: 5px 0;
+	display: block;
+}
+
+.header__menu ul li a h1 i {
+	font-size: 80%;
+	text-align: center;
+	color: #222222;
 	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 2px;
@@ -814,6 +839,7 @@ ol {
 
 .hero__search__phone {
 	float: left;
+	top: 150px;
 }
 
 .hero__search__phone__icon {
@@ -2758,18 +2784,18 @@ a.active-page {
 
 .footer {
 	background: #F3F6FA;
-	padding-top: 70px;
+	padding-top: 30px;
 	padding-bottom: 0;
 }
 
 .footer__about {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 .footer__about ul li {
 	font-size: 16px;
 	color: #1c1c1c;
-	line-height: 36px;
+	line-height: 16px;
 	list-style: none;
 }
 
@@ -2782,7 +2808,7 @@ a.active-page {
 }
 
 .footer__widget {
-	margin-bottom: 30px;
+	margin-top: 20%;
 	overflow: hidden;
 }
 

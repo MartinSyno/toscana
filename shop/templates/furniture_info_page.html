@@ -9,22 +9,22 @@
         <div class="row">
             <div class="col-lg-8">
                 <ul>
-                    <li><a href="/">Головна</a>
+                    <li><a href="/">Головна <h1><i class="icon_house"></i></h1></a>
                         <ul class="header__menu__dropdown">
                             <li><a href="/#featured">Найпопулярніше</a></li>
                             <li><a href="/#latest_product">Нові товари</a></li>
                             <li><a href="/#latest_product">Рейтинг товарів</a></li>
                         </ul>
                     </li>
-                    <li class="active"><a href="#">Товари</a>
+                    <li class="active"><a href="#">Товари <h1><i class="icon_gift"></i></h1></a>
                         <ul class="header__menu__dropdown">
                             {% for category in categories %}
                                 <li><a href={{ category.get_absolute_url }}>{{ category.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
-                    <li><a href="/#discount">Знижки</a></li>
-                    <li><a href={% url "main_page:contact_page" %}>Контакти</a></li>
+                    <li><a href="/#discount">Знижки <h1><i class="icon_percent_alt"></i></h1></a></li>
+                    <li><a href={% url "main_page:contact_page" %}>Контакти <h1><i class="fa fa-address-book"></i></h1></a></li>
                 </ul>
                 {% if user.is_staff %}
                     <ul>
@@ -86,15 +86,15 @@
                         <h3>{{ furniture.name }}</h3>
                         <div class="product__details__price">{{ furniture.price }} грн.</div>
                         <p>{{ furniture.desc }}</p>
-                        <div class="product__details__quantity">
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                            </div>
-                        </div>
+{#                        <div class="product__details__quantity">#}
+{#                            <div class="quantity">#}
+{#                                <div class="pro-qty">#}
+{#                                    <input type="text" value="1">#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
                         <a href={% url "cart:cart_add" furniture.id %} class="primary-btn">Добавити в кошик</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span> 10000 вподобань</a>
+{#                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span> 10000 вподобань</a>#}
                         <ul>
                             <li><b>Наявність</b>
                                 {% if furniture.available %}<span class="product-available">&ensp;<i class="fa fa-check-circle"></i>&ensp;Є в наявності&ensp;</span>
