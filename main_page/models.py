@@ -4,7 +4,7 @@ from django.db import models
 
 class SiteSettings(models.Model):
     def save(self, *args, **kwargs):  # Чтобы запрещало создавать более 1 экземпляра этой модели.
-        if not self.pk and SiteSettings.objects.exists():
+        if self.pk and SiteSettings.objects.exists():
             raise FileExistsError('Не можна створювати два файли налаштувань. Видаліть попередній спочатку.')
         else:
             return super(SiteSettings, self).save(*args, **kwargs)
