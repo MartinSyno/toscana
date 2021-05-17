@@ -16,7 +16,7 @@ class SiteSettings(models.Model):
     instagram_link = models.CharField(max_length=100)
     working_hours = models.CharField(max_length=30)
     # currency = models.CharField(max_length=10)
-    latest_product_amount_in_column = models.IntegerField()
+    # latest_product_amount_in_column = models.IntegerField()
 
 
 class Banner(models.Model):
