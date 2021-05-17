@@ -1,0 +1,1 @@
+web: gunicorn toscana.wsgi --log-file -
