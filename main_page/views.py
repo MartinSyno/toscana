@@ -5,7 +5,7 @@ from cart.cart import Cart
 import random
 
 categories = Category.objects.filter(is_visible=True)
-# site_settings = SiteSettings.objects.first()
+site_settings = SiteSettings.objects.first()
 
 
 def main_page(request):
@@ -19,7 +19,7 @@ def main_page(request):
 
 
     # Раздел Последние товары (amount_in_column - сколько отображать в столбце)
-    amount_in_column = 3#SiteSettings.objects.first().latest_product_amount_in_column
+    amount_in_column = SiteSettings.objects.first().latest_product_amount_in_column
     latest_furnitures = []
     for i in range(0, len(furnitures), amount_in_column):
         latest_furnitures.append(Furniture.objects.filter(is_visible=True).order_by("-created")[i:i+3])#amount_in_column])
@@ -50,6 +50,6 @@ def main_page(request):
         "banners": banners[:2],
         "latest_furnitures": latest_furnitures,
         "random_furnitures": random_furnitures,
-        # "site_settings": site_settings,
+        "site_settings": site_settings,
         "cart": cart,
     })
