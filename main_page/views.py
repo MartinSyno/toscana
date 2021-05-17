@@ -22,7 +22,7 @@ def main_page(request):
     amount_in_column = SiteSettings.objects.first().latest_product_amount_in_column
     latest_furnitures = []
     for i in range(0, len(furnitures), amount_in_column):
-        latest_furnitures.append(Furniture.objects.filter(is_visible=True).order_by("-created")[i:i+3])#amount_in_column])
+        latest_furnitures.append(Furniture.objects.filter(is_visible=True).order_by("-created")[i:i+amount_in_column])
         if len(latest_furnitures) >= 5:
             break
 

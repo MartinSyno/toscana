@@ -9,7 +9,6 @@ from cart.cart import Cart
 categories = Category.objects.filter(is_visible=True)
 site_settings = SiteSettings.objects.first()
 
-
 def contact_page(request):
 
     if request.method == "POST":
