@@ -26,9 +26,9 @@
                 </div>
                 <div class="col-md-5 offset-1">
                     <div class="latest-product__text">
-                        <h4>Рейтинг товарів</h4>
+                        <h4>Випадкові товари</h4>
                         <div class="latest-product__slider owl-carousel">
-                        {% for group in toprated_furnitures %}
+                        {% for group in random_furnitures %}
                             <div class="latest-product__slider__item">
                                 {% for furniture in group %}
                                     <a href={{ furniture.get_absolute_url }} class="latest-product__item">

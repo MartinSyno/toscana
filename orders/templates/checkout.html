@@ -115,13 +115,37 @@
                                     </div>
                                 </div>
                             </div>
-{#                            <div class="checkout__input__checkbox">#}
-{#                                <label for="acc">#}
-{#                                    Create an account?#}
-{#                                    <input type="checkbox" id="acc">#}
-{#                                    <span class="checkmark"></span>#}
-{#                                </label>#}
-{#                            </div>#}
+                            <div>
+                                <h4>Оберіть спосіб зв'язку:</h4>
+                                <div class="checkout__input__checkbox">
+                                    <label>
+                                        Viber
+                                        {{ form.contact_viber }}
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label>
+                                        Telegram
+                                        {{ form.contact_telegram }}
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label>
+                                        Зателефонувати
+                                        {{ form.contact_phone }}
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label>
+                                        Через електронну пошту
+                                        {{ form.contact_email }}
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
 {#                            <p>Create an account by entering the information below. If you are a returning customer#}
 {#                                please login at the top of the page</p>#}
 {#                            <div class="checkout__input">#}
