@@ -12,8 +12,8 @@ class Order(models.Model):
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.EmailField()
     phone_number = models.CharField(max_length=13)
+    email = models.EmailField()
     address = models.CharField(max_length=250)
     code = models.CharField(max_length=20, default=random_number)
     created = models.DateTimeField(auto_now_add=True)

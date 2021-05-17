@@ -9,10 +9,11 @@ class CategoryAdmin(admin.ModelAdmin):
     list_filter = ["name", "is_visible"]
     list_editable = ["category_ordered", "is_visible"]
     search_fields = ["name"]
-    save_on_top = True
     prepopulated_fields = {"slug": ("name",)}
+    save_on_top = True
+    list_per_page = 20
 
-class FurniturePhotosInline(admin.StackedInline):
+class FurniturePhotosInline(admin.TabularInline):
     model = Photos
 
 @admin.register(Furniture)
@@ -21,6 +22,7 @@ class FurnitureAdmin(admin.ModelAdmin):
     list_filter = ["is_visible", "available", "created", "updated", "category"]
     list_editable = ["is_visible", "price", "available", "furniture_ordered", "category"]
     search_fields = ["name"]
-    save_on_top = True
     prepopulated_fields = {"slug": ("name",)}
     inlines = [FurniturePhotosInline]
+    save_on_top = True
+    list_per_page = 20

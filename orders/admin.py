@@ -14,3 +14,5 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ["code", "first_name", "last_name", "phone_number"]
     save_on_top = True
     inlines = [OrderItemInline]
+    readonly_fields = ["code", "first_name", "last_name", "phone_number", "email", "address",]
+    list_per_page = 20
