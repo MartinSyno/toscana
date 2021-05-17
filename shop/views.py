@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
-from main_page.models import SiteSettings
+from main_page.models import *
 from cart.cart import Cart
 from django.core.paginator import Paginator
 import random
 
 categories = Category.objects.filter(is_visible=True)
-site_settings = SiteSettings.objects.first()
+# site_settings = SiteSettings.objects.first()
 
 def category_info_page(request, id, slug):
     category = get_object_or_404(Category, id=id, slug=slug, is_visible=True)
@@ -22,7 +22,7 @@ def category_info_page(request, id, slug):
         "categories": categories,
         "category": category,
         "furnitures_of_category": furnitures_of_category,
-        "site_settings": site_settings,
+        # "site_settings": site_settings,
         "cart": cart,
     })
 
@@ -39,6 +39,6 @@ def furniture_info_page(request, id, slug, *args, **kwargs):
         "categories": categories,
         "furniture": furniture,
         "related_furnitures": related_furnitures[:4],
-        "site_settings": site_settings,
+        # "site_settings": site_settings,
         "cart": cart,
     })
