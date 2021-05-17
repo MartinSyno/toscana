@@ -8,13 +8,13 @@ class SiteSettings(models.Model):
     #         raise FileExistsError('Не можна створювати два файли налаштувань. Видаліть попередній спочатку.')
     #     else:
     #         return super(SiteSettings, self).save(*args, **kwargs)
-
-    phone = models.CharField(max_length=20)
-    address = models.CharField(max_length=30)
-    email = models.EmailField()
-    facebook_link = models.CharField(max_length=100)
-    instagram_link = models.CharField(max_length=100)
-    working_hours = models.CharField(max_length=30)
+    pass
+    # phone = models.CharField(max_length=20)
+    # address = models.CharField(max_length=30)
+    # email = models.EmailField()
+    # facebook_link = models.CharField(max_length=100)
+    # instagram_link = models.CharField(max_length=100)
+    # working_hours = models.CharField(max_length=30)
     # currency = models.CharField(max_length=10)
     # latest_product_amount_in_column = models.IntegerField()
 
