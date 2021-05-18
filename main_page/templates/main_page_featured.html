@@ -21,7 +21,7 @@
                     {% for furniture in furniture_group %}
                     <div class="col-lg-3 col-md-4 col-sm-6 mix category-id-{{ furniture.category.id }} fresh-meat">
                         <div class="featured__item">
-                            <div class="featured__item__pic set-bg" data-setbg="{{ furniture.photo.url }}">
+                            <div class="featured__item__pic set-bg" data-setbg="{{ furniture.photo }}">
                                 <a href={{ furniture.get_absolute_url }}><div class="featured__item__pic"></div></a>
                                 <ul class="featured__item__pic__hover">
 {#                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>#}
