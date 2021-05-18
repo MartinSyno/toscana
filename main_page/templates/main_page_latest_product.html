@@ -10,7 +10,7 @@
                             <div class="latest-prdouct__slider__item">
                                 {% for furniture in group %}
                                     <a href={{ furniture.get_absolute_url }} class="latest-product__item">
-                                        <div class="set-bg latest-product__item__pic" data-setbg="/{{ furniture.photo.url }}">
+                                        <div class="set-bg latest-product__item__pic" data-setbg="{{ furniture.photo.url }}">
                                             <img src="{% static "img/transparent.png" %}" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
