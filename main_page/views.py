@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from shop.models import Category, Furniture
+from shop.models import *
 from .models import *
 from cart.cart import Cart
 import random
 
 categories = Category.objects.filter(is_visible=True)
-# site_settings = SiteSettings.objects.first()
+site_settings = SiteSettings.objects.first()
 
 
 def main_page(request):
@@ -50,6 +50,6 @@ def main_page(request):
         "banners": banners[:2],
         "latest_furnitures": latest_furnitures,
         "random_furnitures": random_furnitures,
-        # "site_settings": site_settings,
+        "site_settings": site_settings,
         "cart": cart,
     })

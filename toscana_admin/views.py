@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from contact_page.models import Message
-# from main_page.models import SiteSettings
+from main_page.models import SiteSettings
 from shop.models import Category
 
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -9,7 +9,7 @@ from cart.cart import Cart
 
 # Create your views here.
 categories = Category.objects.filter(is_visible=True)
-# site_settings = SiteSettings.objects.first()
+site_settings = SiteSettings.objects.first()
 
 
 def is_admin(user):
@@ -29,7 +29,7 @@ def messages_list(request):
     return render(request, "messages_list.html", context={
         "messages": messages,
         "categories": categories,
-        # "site_settings": site_settings,
+        "site_settings": site_settings,
         "cart": cart,
     })
 
