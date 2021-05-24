@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from shop.models import *
+from shop.models import Category, Furniture
 from .models import *
 from cart.cart import Cart
 import random

@@ -20,7 +20,7 @@ class SiteSettings(models.Model):
 
 class Banner(models.Model):
     name = models.CharField(max_length=30, db_index=True)
-    photo = models.ImageField(upload_to="img/banner/%Y/%m/%d")
+    photo = models.ImageField(upload_to="img/banner")
     is_visible = models.BooleanField(default=True)
 
     class Meta:

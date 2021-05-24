@@ -6,7 +6,6 @@ class Category(models.Model):
 
     name = models.CharField(max_length=30, unique=True)
     slug = models.SlugField(db_index=True)
-    photo = models.ImageField(upload_to="img/category/%Y/%m/%d")
     category_ordered = models.IntegerField(unique=True)
     is_visible = models.BooleanField(default=True)
 
@@ -25,7 +24,7 @@ class Furniture(models.Model):
     name = models.CharField(max_length=30, db_index=True)
     slug = models.SlugField(db_index=True)
     # furniture_color =
-    photo = models.ImageField(upload_to="img/furniture/%Y/%m/%d")
+    photo = models.ImageField(upload_to="img/furniture")
     furniture_ordered = models.IntegerField()
     is_visible = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -52,5 +51,5 @@ class Furniture(models.Model):
 #     furniture_group_of_colors = models.CharField(max_length=30, unique=True)
 
 class Photos(models.Model):
-    furniture = models.ForeignKey(Furniture, default=None, related_name='photos', on_delete=models.DO_NOTHING)
+    furniture = models.ForeignKey(Furniture, default=None, related_name='photos', on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='img/furniture/%Y/%m/%d', blank=True)

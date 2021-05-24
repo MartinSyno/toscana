@@ -720,7 +720,10 @@ ol {
 	top: 46px;
 	width: 100%;
 	z-index: 9;
-	background: #ffffff;
+
+	border: 2px solid #7fad39;
+	background-color: #f1f1f1;
+	border-radius: 0 0 5% 5%;
 }
 
 .hero.hero-normal .hero__search {
