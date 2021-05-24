@@ -6,11 +6,11 @@ from shop.models import Furniture
 from .cart import Cart
 
 from shop.models import Category
-from main_page.models import SiteSettings
+# from main_page.models import SiteSettings
 
 # Create your views here.
 categories = Category.objects.filter(is_visible=True)
-site_settings = SiteSettings.objects.first()
+# site_settings = SiteSettings.objects.first()
 
 @require_GET
 def cart_add(request, furniture_id):
@@ -30,5 +30,5 @@ def cart_detail(request):
     return render(request, "cart_detail.html", {
         "cart": cart,
         "categories": categories,
-        "site_settings": site_settings,
+        # "site_settings": site_settings,
     })
